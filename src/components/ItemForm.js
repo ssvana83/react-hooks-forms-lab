@@ -8,14 +8,10 @@ function ItemForm({onItemFormSubmit}) {
     name: ''
   })
 
-  // function handleFormChange(event) {
-  //   const name = event.target.name
-
-  //   setFormData({
-  //     ...formData,
-  //     [name]: event.target.value
-  //   })
-  // }
+  const handleFormSubmit = (event) => {
+    event.preventDefault()
+    onItemFormSubmit({...formData, id: uuid()})
+  }
 
   const handleFormChange = (event) => {
     setFormData(formData => {
@@ -26,7 +22,7 @@ function ItemForm({onItemFormSubmit}) {
     })
   }
   return (
-    <form className="NewItem" onSubmit={(event) => onItemFormSubmit(event, {...formData, id: uuid()})}>
+    <form className="NewItem" onSubmit={handleFormSubmit}>
       <label>
         Name:
         <input 
