@@ -12,8 +12,7 @@ function App() {
     setIsDarkMode((isDarkMode) => !isDarkMode);
   }
 
-  function onItemFormSubmit(event, newItem) {
-    event.preventDefault()
+  function onItemFormSubmit(newItem) {
       setItems((items) => [...items, newItem])
   }
 
